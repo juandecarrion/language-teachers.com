@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   Languageteacher::Application.routes.draw do
-    resources :teachers, :path => ''
+    resources :teachers, :path => '' do
+      resources :language_profiles
+    end
   end
 
   # Example of regular route:
