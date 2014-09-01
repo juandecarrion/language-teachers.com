@@ -1,5 +1,7 @@
 <h1>Listing teachers</h1>
 
+<%= link_to 'Add a New Teacher', new_teacher_path %>
+
 <table>
     <tr>
         <th>Title</th>
@@ -10,6 +12,8 @@
         <tr>
             <td><%= teacher.title %></td>
             <td><%= teacher.text %></td>
+            <td><%= link_to 'Show', teacher_path(teacher) %></td>
+            <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
         </tr>
     <% end %>
 </table>
