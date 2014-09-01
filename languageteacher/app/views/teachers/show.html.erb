@@ -8,5 +8,28 @@
     <%= @teacher.text %>
 </p>
 
+<h2>Teaches:</h2>
+<% @teacher.language_profiles.each do |language_profile| %>
+    <p>
+        <strong><%= language_profile.language %>:</strong>
+        <%= language_profile.body %>
+    </p>
+<% end %>
+
+<h2>Add a language_profile:</h2>
+<%= form_for([@teacher, @teacher.language_profiles.build]) do |f| %>
+    <p>
+        <%= f.label :language %><br>
+        <%= f.text_field :language %>
+    </p>
+    <p>
+        <%= f.label :body %><br>
+        <%= f.text_area :body %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
+
 <%= link_to 'Back', teachers_path %>
 | <%= link_to 'Edit', edit_teacher_path(@teacher) %>
