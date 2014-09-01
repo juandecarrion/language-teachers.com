@@ -5,12 +5,22 @@ class TeachersController < ApplicationController
   end
 
   def create
-    render plain: params[:teacher].inspect
+    @teacher = Teacher.new(teacher_params)
+
+    if @teacher.save
+      redirect_to @teacher
+    else
+      render 'new'
+    end
   end
 
-  #private
-  #
-  #def article_params
-  #  params.require(:teacher).permit(:your, :attributes)
-  #end
+  def show
+    @teacher = Teacher.find(params[:id])
+  end
+
+  private
+    def teacher_params
+      params.require(:teacher).permit(:title, :text)
+    end
+
 end
