@@ -18,6 +18,10 @@ class TeachersController < ApplicationController
     @teacher = Teacher.find(params[:id])
   end
 
+  def index
+    @teachers = Teacher.all
+  end
+
   private
     def teacher_params
       params.require(:teacher).permit(:title, :text)
