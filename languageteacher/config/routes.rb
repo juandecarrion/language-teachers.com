@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -8,10 +7,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   Languageteacher::Application.routes.draw do
-
-    resources :teachers
-
-    root 'welcome#index'
+    resources :teachers, :path => ''
   end
 
   # Example of regular route:
